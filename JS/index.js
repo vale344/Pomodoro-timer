@@ -24,6 +24,7 @@
         this.interval = setInterval(function(){
           self.intervalCallback.apply(self);
         }, 1000);
+        // forbind til mint ellement
         document.querySelector('#button-start').onclick = function(){
           self.startime.apply(self);
           console.log('¨testbutton-start');
@@ -49,28 +50,31 @@
         this.fillerHeight = 0;  
         console.log('¨test rester variable');
       },
+
+      // function's vor jeg gammer minne tider
       startime: function() {
-        this.resetVariables(24, 0, true);
+        this.resetVariables(0, 5, true);
         console.log('¨test time1');
       },
       startShortBreak : function(){
-        this.resetVariables(5, 0, true);
+        this.resetVariables(1, 0, true);
         console.log('¨test time2');
       },
       startLongBreak : function(){
-        this.resetVariables(15, 0, true);
+        this.resetVariables(1, 0, true);
         console.log('¨test time3');
       },
       stopTimer : function(){
-        this.resetVariables(24, 0, false);
+        this.resetVariables(1, 0, false);
         this.updateDom();
         console.log('¨test time2');
       },
        updateDom : function(){
          this.minDom.innerHTML = this.toDoubleDigit(this.min);
          this.secDom.innerHTML = this.toDoubleDigit(this.sec);
-        this.fillerHeight = this.fillerHeight + this.fillerIncrement;
-        this.fillerDom.style.height = this.fillerHeight + 'px';
+     
+         this.fillerHeight = this.fillerHeight + this.fillerIncrement;
+         this.fillerDom.style.height = this.fillerHeight + 'px';
         console.log('¨test update');
       },
       toDoubleDigit : function(num){
@@ -79,6 +83,7 @@
         }
         return num;
       },
+
       intervalCallback : function(){
         if(!this.started) return false;
         if(this.sec == 0) {
@@ -93,9 +98,12 @@
         }
           this.updateDom();
       },
+      
       timerComplete : function(){
         this.started = false;
         this.fillerHeight = 0;
+        // skal sætte for 
+        this.startLongBreak();
       }
 
     
