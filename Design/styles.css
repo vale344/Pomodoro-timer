@@ -1,0 +1,37 @@
+body{
+    background-color: rgb(184, 59, 59);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+.state{
+    background-color: rgb(154, 142, 142);
+    
+    width: 200px;
+    height: 60px;
+    text-align: center;
+   display: block;
+   margin: auto;
+}
+.state-text{
+    justify-self: center;
+    font-size: 40px;
+    opacity: 100%;
+}
+
+.Time{
+    background-color: rgb(154, 142, 142);
+    width: 200px;
+    height: 60px;
+    text-align: center;
+   margin: auto;
+   font-size: 40px;
+}
+
+.buttons{
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    display: flex;
+}
