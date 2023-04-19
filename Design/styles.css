@@ -5,14 +5,15 @@ body{
     height: 100vh;
 
 }
+
 .state{
-    
     width: 100px;
     height: 40px;
     text-align: center;
-   display: block;
-   margin: auto;
+    display: block;
+    margin: auto;
 }
+
 .state-text{
     justify-self: center;
     font-size: 40px;
@@ -21,13 +22,11 @@ body{
     color: white;
 }
 
-.Time{
-    
+.Time{    
     width: 100px;
     height: 40px;
     text-align: center;
     margin: auto;
-   
 }
 
 .time-text{
@@ -47,7 +46,7 @@ body{
     font-size: 20px;
     margin: 4px 2px;
     cursor: pointer;
-  }
+}
 
 .buttons{
     flex-wrap: wrap;
@@ -63,17 +62,20 @@ body{
 }
 
 @media only screen and (min-width: 600px){
+
     body{
         background-color: rgb(184, 59, 59);
         display: flex;
         flex-direction: column;
         height: 100vh;
     }
+
     .state{
         text-align: center;
         display: block;
         margin: auto;
     }
+
     .state-text{
         justify-self: center;
         font-size: 80px;
@@ -100,6 +102,7 @@ body{
         margin: auto;
         font-size: 30px;
     }
+
     .button {
         background-color: #4e9950;
         border: none;
@@ -110,9 +113,8 @@ body{
         display: inline-block;
         font-size: 30px;
         margin: 4px 2px;
-        cursor: pointer;
-        
-      }
+        cursor: pointer;       
+    }
       
     .spacing{
         margin-left: 50px;
