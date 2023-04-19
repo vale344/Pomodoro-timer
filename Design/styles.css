@@ -1,0 +1,120 @@
+body{
+    background-color: rgb(70, 59, 184);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+.state{
+    
+    width: 100px;
+    height: 40px;
+    text-align: center;
+   display: block;
+   margin: auto;
+}
+.state-text{
+    justify-self: center;
+    font-size: 40px;
+    opacity: 100%;
+    margin-top: 5px;
+    color: white;
+}
+
+.Time{
+    
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin: auto;
+   
+}
+
+.time-text{
+    margin-top: 5px;
+    font-size: 40px;
+    color: white;
+}
+
+.button {
+    background-color: #4e9950;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+.buttons{
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    display: flex;
+    margin: auto;
+}
+
+.spacing{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+@media only screen and (min-width: 600px){
+    body{
+        background-color: rgb(184, 59, 59);
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .state{
+        text-align: center;
+        display: block;
+        margin: auto;
+    }
+    .state-text{
+        justify-self: center;
+        font-size: 80px;
+        color: white;
+    }
+    
+    .Time{    
+        width: 100px;
+        height: 40px;
+        text-align: center;
+        margin: auto;
+    }
+    
+    .time-text{
+        font-size: 80px;
+        color: white;
+    }
+    
+    .buttons{
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        display: flex;
+        margin: auto;
+        font-size: 30px;
+    }
+    .button {
+        background-color: #4e9950;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 30px;
+        margin: 4px 2px;
+        cursor: pointer;
+        
+      }
+    .spacing{
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
