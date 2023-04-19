@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(184, 59, 59);
+    background-color: rgb(70, 59, 184);
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -76,7 +76,7 @@ body{
     }
     .state-text{
         justify-self: center;
-        font-size: 60px;
+        font-size: 80px;
         color: white;
     }
     
@@ -88,7 +88,7 @@ body{
     }
     
     .time-text{
-        font-size: 60px;
+        font-size: 80px;
         color: white;
     }
     
@@ -111,6 +111,7 @@ body{
         font-size: 30px;
         margin: 4px 2px;
         cursor: pointer;
+        
       }
     .spacing{
         margin-left: 50px;
