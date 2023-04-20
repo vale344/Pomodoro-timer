@@ -25,9 +25,9 @@
           self.intervalCallback.apply(self);
         }, 1000);
         // forbind til mint ellement
-        document.querySelector('#button-start').onclick = function(){
+        document.querySelector('#button-work').onclick = function(){
           self.startime.apply(self);
-          console.log('¨testbutton-start');
+          console.log('¨testbutton-work');
         };
         document.querySelector('#shortBreak').onclick = function(){
           self.startShortBreak.apply(self);
@@ -37,7 +37,7 @@
           self.startLongBreak.apply(self);
           console.log('¨test longBreak');
         };
-        document.querySelector('#button-purse').onclick = function(){
+        document.querySelector('#button-stop').onclick = function(){
           self.stopTimer.apply(self);
           console.log('¨test stop');
         };
