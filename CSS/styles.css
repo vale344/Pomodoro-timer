@@ -24,7 +24,6 @@ body {
   height: 40px;
   text-align: center;
   margin: auto;
-  
 }
 
 .time-text {
@@ -46,13 +45,11 @@ body {
   cursor: pointer;
   border-radius: 8px;
   padding: 20px;
-  max-width: 400PX;
-  max-height: 400PX;
+  max-width: 400px;
+  max-height: 400px;
 }
 
-
-
-.buttons{
+.buttons {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -114,17 +111,8 @@ body {
     font-size: 30px;
     margin: 4px 2px;
     cursor: pointer;
-<<<<<<< HEAD
-    border-style: outset;
-  }
-  .spacing {
-    margin-left: 50px;
-    margin-right: 50px;
-=======
-   
+
     border-radius: 8px;
     padding: 20px;
->>>>>>> 94fb6876d5ee7edbad99bf7eb921d235d630e50c
   }
-  
 }
