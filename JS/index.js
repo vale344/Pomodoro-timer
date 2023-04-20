@@ -75,7 +75,7 @@
      
          this.fillerHeight = this.fillerHeight + this.fillerIncrement;
          this.fillerDom.style.height = this.fillerHeight + 'px';
-        console.log('¨test update');
+        console.log('¨test ttupdate');
       },
       toDoubleDigit : function(num){
         if(num < 10) {
