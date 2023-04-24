@@ -3,7 +3,7 @@
 // shortBreak: 5,
 // longBreak: 15,
 // longBreakinterval: 4,
-let cun = 0;
+let count = 0;
 let pomodoro = {
   started: false,
   min: 0,
