@@ -24,7 +24,7 @@ let pomodoro = {
     this.interval = setInterval(function () {
       self.intervalCallback.apply(self);
     }, 1000);
-    // forbind til mint ellement
+    // forbind til mit ellement
     document.querySelector("#button-work").onclick = function () {
       self.startime.apply(self);
       console.log("¨testbutton-work");
@@ -55,8 +55,6 @@ let pomodoro = {
   startime: function () {
     this.resetVariables(0, 5, true);
     console.log("¨test time1 star");
-
-    
   },
   startShortBreak: function () {
     this.resetVariables(1, 0, true);
@@ -105,27 +103,27 @@ let pomodoro = {
     console.log("test bextMod4");
     // this.startLongBreak();
     this.work = this.work === true ? false : true;
-    console.log(this.work)
-    if ((this.work === true)) {
+    console.log(this.work);
+    if (this.work === true) {
       this.startime();
       this.work = true;
-      cun++;
-      console.log('tal cun'+cun);
-     } 
-    // if ((this.started = false)) 
-    else{
-      if (cun === 4) {
-        console.log('longbreak tal cun====4'+cun);
+      count++;
+      console.log("tal cun" + count);
+    }
+    // if ((this.started = false))
+    else {
+      if (count === 4) {
+        console.log("longbreak tal cun====4" + count);
         this.startLongBreak();
-        cun =0;
-        console.log('tal cun 0===='+cun);
+        count = 0;
+        console.log("tal cun 0====" + count);
       } else {
         this.startShortBreak();
-        console.log(('sort brt'));
+        console.log("sort brt");
       }
     }
   },
-//xsdfhkdvhbdcvbsdvhjbsdvjbsdvbsdjvbsdvjbsjdvbsudvbf
+  //xsdfhkdvhbdcvbsdvhjbsdvjbsdvbsdjvbsdvjbsjdvbsudvbf
   timerComplete: function () {
     // this.started = false;
     this.fillerHeight = 0;
