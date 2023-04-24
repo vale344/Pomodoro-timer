@@ -6,6 +6,7 @@
 let cun = 0;
 let pomodoro = {
   started: false,
+  work: false,
   min: 0,
   sec: 0,
   fillerHeight: 0,
@@ -55,7 +56,7 @@ let pomodoro = {
     this.resetVariables(0, 5, true);
     console.log("¨test time1 star");
 
-    cun++;
+    
   },
   startShortBreak: function () {
     this.resetVariables(1, 0, true);
@@ -103,19 +104,24 @@ let pomodoro = {
   nextMode: function () {
     console.log("test bextMod4");
     // this.startLongBreak();
-    this.started = this.started === true ? false : true;
-    console.log(this.started)
-    if ((this.started === false)) {
+    this.work = this.work === true ? false : true;
+    console.log(this.work)
+    if ((this.work === true)) {
       this.startime();
+      this.work = true;
+      cun++;
+      console.log('tal cun'+cun);
      } 
     // if ((this.started = false)) 
     else{
       if (cun === 4) {
-        console.log(('brt'));
+        console.log('longbreak tal cun====4'+cun);
         this.startLongBreak();
+        cun =0;
+        console.log('tal cun 0===='+cun);
       } else {
         this.startShortBreak();
-        console.log(('brt'));
+        console.log(('sort brt'));
       }
     }
   },
