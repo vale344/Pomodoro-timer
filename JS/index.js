@@ -51,7 +51,7 @@ let pomodoro = {
     console.log("¨test rester variable");
   },
 
-  // function's vor jeg gammer minne tider
+  // function's hvor jeg gemmer mine tider
   startime: function () {
     this.resetVariables(0, 5, true);
     console.log("¨test time1 star");
