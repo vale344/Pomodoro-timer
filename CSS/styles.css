@@ -30,8 +30,8 @@ body {
   cursor: pointer;
   border-radius: 8px;
   padding: 20px;
-  max-width: 400PX;
-  max-height: 400PX;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .button:hover {
