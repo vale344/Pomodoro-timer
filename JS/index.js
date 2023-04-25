@@ -24,7 +24,7 @@ let pomodoro = {
     this.interval = setInterval(function () {
       self.intervalCallback.apply(self);
     }, 1000);
-    // forbind til mit ellement
+    // forbind til mit element
     document.querySelector("#button-work").onclick = function () {
       self.startime.apply(self);
       console.log("¨testbutton-work");
