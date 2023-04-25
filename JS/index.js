@@ -136,6 +136,3 @@ let pomodoro = {
 window.onload = function () {
   pomodoro.init();
 };
-
-
-if ()
