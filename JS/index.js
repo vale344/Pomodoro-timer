@@ -4,20 +4,17 @@
 // longBreak: 15,
 // longBreakinterval: 4,
 
-
 let cun = 0;
-let run =false;
+let run = false;
 var timer;
-let playMode= document.querySelector("#button-restart")
-
-
+let playMode = document.querySelector("#button-restart");
 
 let pomodoro = {
   currentTimw: 0,
   elapsedTme: 0,
   paused: true,
   startimer: 0,
-  
+
   status: false,
   counttime: 0,
   started: false,
@@ -37,15 +34,14 @@ let pomodoro = {
     this.secDom = document.querySelector("#sec");
     this.fillerDom = document.querySelector("#filler");
     // vikker til at stopper
-     timer = setInterval(function () {
-    //this.interval = setInterval(function () {
+    timer = setInterval(function () {
+      //this.interval = setInterval(function () {
       self.intervalCallback.apply(self);
       // this.timeCount();
     }, 1000);
 
     // forbind til mit element
     document.querySelector("#button-work").onclick = function () {
-
       self.startime.apply(self);
       console.log("¨testbutton-work");
       this.counttime = 0;
@@ -89,24 +85,19 @@ let pomodoro = {
   startime: function () {
     this.resetVariables(25, 0, true);
     console.log("¨test time1 star");
-
-
   },
   startShortBreak: function () {
     this.resetVariables(5, 0, true);
     console.log("¨test time2 short");
-    
   },
   startLongBreak: function () {
     this.resetVariables(15, 0, true);
     console.log("¨test time3 long");
-   
   },
   stopTimer: function () {
     this.resetVariables(0, 0, false);
     this.updateDom();
     console.log("¨test time2");
-   
   },
 
   updateDom: function () {
@@ -155,8 +146,6 @@ let pomodoro = {
         this.startLongBreak();
         cun = 0;
         console.log("tal cun 0====" + cun);
-
-
       } else {
         this.startShortBreak();
         console.log("sort brt");
@@ -174,36 +163,27 @@ let pomodoro = {
 window.onload = function () {
   pomodoro.init();
 };
-function pause  () {
-clearInterval(timer);
+function pause() {
+  clearInterval(timer);
 }
-function startCount(){
+function startCount() {
   pomodoro.init();
 }
 document.querySelector("#button-restart").onclick = function () {
   // this.started = this.started === false ? true : false;
   run = run === false ? true : false;
   // console.log(run);
-  if (run===true)
-  {
+  if (run === true) {
     //  clearInterval(timer);
     pause();
     playMode.setAttribute("name", "pause");
-     console.log(run);
+    console.log(run);
   }
-   if(run===false){
+  if (run === false) {
     // pomodoro.init();
     // console.log(run);
     // console.log(timer);
     startCount();
     playMode.setAttribute("name", "play");
-   }
-  
-    // function startCount(){
-    //   pomodoro.init();
-    // }
- 
-
-
-}
-
+  }
+};
