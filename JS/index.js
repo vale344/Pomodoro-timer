@@ -147,7 +147,6 @@ let pomodoro = {
       this.startime();
       this.work = true;
 
-
       cun++;
       console.log("tal cun" + cun);
     } else {
@@ -205,4 +204,6 @@ document.querySelector("#button-restart").onclick = function () {
     // }
  
 
+
 }
+
