@@ -4,10 +4,12 @@
 // longBreak: 15,
 // longBreakinterval: 4,
 
+
 let cun = 0;
 let run =false;
 var timer;
 let playMode= document.querySelector("#button-restart")
+
 
 
 let pomodoro = {
@@ -88,6 +90,7 @@ let pomodoro = {
     this.resetVariables(25, 0, true);
     console.log("¨test time1 star");
 
+
   },
   startShortBreak: function () {
     this.resetVariables(5, 0, true);
@@ -153,6 +156,7 @@ let pomodoro = {
         cun = 0;
         console.log("tal cun 0====" + cun);
 
+
       } else {
         this.startShortBreak();
         console.log("sort brt");
@@ -200,4 +204,6 @@ document.querySelector("#button-restart").onclick = function () {
     // }
  
 
+
 }
+
