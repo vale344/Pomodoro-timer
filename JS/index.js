@@ -176,7 +176,7 @@ document.querySelector("#button-restart").onclick = function () {
   if (run === true) {
     //  clearInterval(timer);
     pause();
-    playMode.setAttribute("name", "pause");
+    playMode.innerHTML = ">";
     console.log(run);
   }
   if (run === false) {
@@ -184,6 +184,6 @@ document.querySelector("#button-restart").onclick = function () {
     // console.log(run);
     // console.log(timer);
     startCount();
-    playMode.setAttribute("name", "play");
+    playMode.innerHTML = "II";
   }
 };
