@@ -1,28 +1,22 @@
 "use strict";
-// pomodoro: 25,
-// shortBreak: 5,
-// longBreak: 15,
-// longBreakinterval: 4,
-//where hold counts towards where mage work has run
+
+//cun is a Variables af int that keeps track of the number of times that starttime() has run
 let cun = 0;
+//run is Variables af bool keeps track of my playis running
 let run = false;
+// timer is used together with aglobal function setInterval()
 var timer;
 let playMode = document.querySelector("#button-restart");
-
+//pomodoro is Objects that holds all the Variables that need to be used between the {}
 let pomodoro = {
-  currentTimw: 0,
-  elapsedTme: 0,
-  paused: true,
-  startimer: 0,
-
-  status: false,
-  started: false,
+  //status on whether the timer is running
+  isStarted: false,
+  // keep track of whether you have braek or work
   work: false,
   min: 0,
   sec: 0,
-  fillerHeight: 0,
+  // used for calculating time in function resetVariables:
   fillerIncrement: 0,
-  interval: null,
   minDom: null,
   secDom: null,
   fillerDom: null,
@@ -56,16 +50,15 @@ let pomodoro = {
       console.log(self.sec);
       self.stopTimer.apply(self);
       console.log("¨test stop");
-      
     };
   },
-
-  resetVariables: function (mins, secs, started) {
+//resetVariables: function (parameter, parameter, parameter)
+  resetVariables: function (mins, secs, isStarted) {
     this.min = mins;
     this.sec = secs;
-    this.started = started;
+    this.isStarted = isStarted;
     this.fillerIncrement = 200 / (this.mins * 60);
-    this.fillerHeight = 0;
+    
     console.log("¨test rester variable");
   },
 
@@ -87,14 +80,10 @@ let pomodoro = {
     this.updateDom();
     console.log("¨test time2");
   },
-//update what you can see in html min &sec
+  //update what you can see in html min &sec
   updateDom: function () {
     this.minDom.innerHTML = this.toDoubleDigit(this.min);
     this.secDom.innerHTML = this.toDoubleDigit(this.sec);
-
-    this.fillerHeight = this.fillerHeight + this.fillerIncrement;
-    this.fillerDom.style.height = this.fillerHeight + "px";
-    console.log("¨test update");
   },
   toDoubleDigit: function (num) {
     if (num < 10) {
@@ -104,7 +93,7 @@ let pomodoro = {
   },
 
   intervalCallback: function () {
-    if (!this.started) return false;
+    if (!this.isStarted) return false;
     if (this.sec == 0) {
       if (this.min == 0) {
         this.timerComplete();
@@ -140,9 +129,9 @@ let pomodoro = {
       }
     }
   },
-  //xsdfhkdvhbdcvbsdvhjbsdvjbsdvbsdjvbsdvjbsjdvbsudvbf
+ 
   timerComplete: function () {
-    this.started = false;
+    this.isStarted = false;
     this.fillerHeight = 0;
     this.nextMode();
   },
@@ -158,19 +147,14 @@ function startCount() {
   pomodoro.init();
 }
 document.querySelector("#button-restart").onclick = function () {
-  // this.started = this.started === false ? true : false;
   run = run === false ? true : false;
-  // console.log(run);
+
   if (run === true) {
-    //  clearInterval(timer);
     pause();
     playMode.innerHTML = ">";
     console.log(run);
   }
   if (run === false) {
-    // pomodoro.init();
-    // console.log(run);
-    // console.log(timer);
     startCount();
     playMode.innerHTML = "II";
   }
