@@ -184,14 +184,14 @@ document.querySelector("#button-restart").onclick = function () {
   // this.started = this.started === false ? true : false;
   run = run === false ? true : false;
   // console.log(run);
-  if (run===false)
+  if (run===true)
   {
     //  clearInterval(timer);
     pause();
     playMode.setAttribute("name", "pause");
      console.log(run);
   }
-   if(run===true){
+   if(run===false){
     // pomodoro.init();
     // console.log(run);
     // console.log(timer);
