@@ -3,7 +3,7 @@
 // shortBreak: 5,
 // longBreak: 15,
 // longBreakinterval: 4,
-
+//where hold counts towards where mage work has run
 let cun = 0;
 let run = false;
 var timer;
@@ -16,7 +16,6 @@ let pomodoro = {
   startimer: 0,
 
   status: false,
-  counttime: 0,
   started: false,
   work: false,
   min: 0,
@@ -30,48 +29,37 @@ let pomodoro = {
 
   init: function () {
     let self = this;
+    //calls to my span in html that have to do with time
     this.minDom = document.querySelector("#min");
     this.secDom = document.querySelector("#sec");
     this.fillerDom = document.querySelector("#filler");
-    // vikker til at stopper
+    // works to make it run once per sec
     timer = setInterval(function () {
-      //this.interval = setInterval(function () {
       self.intervalCallback.apply(self);
-      // this.timeCount();
+      //sets it to 1000 milliseconds = 1 seconds
     }, 1000);
 
-    // forbind til mit element
+    // work mode buttons to set whether you have break or work
     document.querySelector("#button-work").onclick = function () {
       self.startime.apply(self);
       console.log("¨testbutton-work");
-      this.counttime = 0;
     };
     document.querySelector("#shortBreak").onclick = function () {
       self.startShortBreak.apply(self);
       console.log("¨test shortBreak");
-      this.counttime = 0;
     };
     document.querySelector("#longBreak").onclick = function () {
       self.startLongBreak.apply(self);
       console.log("¨test longBreak");
-      this.counttime = 0;
     };
     document.querySelector("#button-purse").onclick = function () {
       console.log(self.sec);
       self.stopTimer.apply(self);
       console.log("¨test stop");
-      console.log("¨test stop");
-      this.counttime = 0;
+      
     };
-    // document.querySelector("#button-restart").onclick = function () {
-    //   this.started = this.started === false ? true : false;
+  },
 
-    //   console.log("¨test play /stop");
-    // };
-  },
-  timeCount: function () {
-    this.counttime++;
-  },
   resetVariables: function (mins, secs, started) {
     this.min = mins;
     this.sec = secs;
@@ -81,7 +69,7 @@ let pomodoro = {
     console.log("¨test rester variable");
   },
 
-  // function's hvor jeg gemmer mine tider
+  // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
   startime: function () {
     this.resetVariables(25, 0, true);
     console.log("¨test time1 star");
@@ -99,7 +87,7 @@ let pomodoro = {
     this.updateDom();
     console.log("¨test time2");
   },
-
+//update what you can see in html min &sec
   updateDom: function () {
     this.minDom.innerHTML = this.toDoubleDigit(this.min);
     this.secDom.innerHTML = this.toDoubleDigit(this.sec);
@@ -137,7 +125,7 @@ let pomodoro = {
     if (this.work === true) {
       this.startime();
       this.work = true;
-
+      //counts to how mage work has run
       cun++;
       console.log("tal cun" + cun);
     } else {
