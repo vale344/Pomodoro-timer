@@ -3,12 +3,12 @@
 //counts is a Variables af int that keeps track of the number of times that starttime() has run
 let counts = 0;
 //run is Variables af bool keeps track of my playis running
-let isrun = false;
+let isrun = true;
 // timer is used together with aglobal function setInterval()
 var timer;
 //gets info from click function #button-restart
 let playMode = document.querySelector("#button-restart");
-//pomodoro is Objects that holds all the Variables that need to be used between the {}
+//pomodoro is Objects that holds all the Variables/function/method that need to be used between the {}
 let pomodoro = {
   //status on whether the timer is running
   isStarted: false,
@@ -39,19 +39,24 @@ let pomodoro = {
     document.querySelector("#button-work").onclick = function () {
       self.startime.apply(self);
       console.log("¨testbutton-work");
+      // isrun=true;
+      console.log(isrun)
     };
     document.querySelector("#shortBreak").onclick = function () {
       self.startShortBreak.apply(self);
       console.log("¨test shortBreak");
+      // isrun=false;
     };
     document.querySelector("#longBreak").onclick = function () {
       self.startLongBreak.apply(self);
       console.log("¨test longBreak");
+      // isrun=false;
     };
     document.querySelector("#button-purse").onclick = function () {
       console.log(self.sec);
       self.stopTimer.apply(self);
       console.log("¨test stop");
+    
     };
   },
   //resetVariables: function (parameter, parameter, parameter)
@@ -60,7 +65,6 @@ let pomodoro = {
     this.sec = secs;
     this.isStarted = isStarted;
     this.fillerIncrement = 200 / (this.mins * 60);
-
     console.log("¨test rester variable");
   },
 
@@ -69,10 +73,11 @@ let pomodoro = {
     this.resetVariables(25, 0, true);
     console.log("¨test time1 star");
     
+    
   },
   // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
   startShortBreak: function () {
-    this.resetVariables(5, 0, true);
+    this.resetVariables(5, 10, true);
     console.log("¨test time2 short");
   },
   // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
@@ -127,7 +132,7 @@ let pomodoro = {
     this.iswork = this.iswork === true ? false : true;
     console.log(this.iswork);
     //if it is true then run the Function object startime()
-    if (this.iswork === true) {
+    if (this.iswork === false) {
       this.startime();
       //counts to how mage work has run
       counts++;
@@ -176,6 +181,7 @@ document.querySelector("#button-restart").onclick = function () {
   // if false run startCount(); function 
   if (isrun === false) {
     startCount();
+    // isrun=false;
     //and send info about new text to html
     playMode.innerHTML = "II";
   }
