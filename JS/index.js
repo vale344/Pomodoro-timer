@@ -67,14 +67,17 @@ let pomodoro = {
     this.resetVariables(25, 0, true);
     console.log("¨test time1 star");
   },
+   // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
   startShortBreak: function () {
     this.resetVariables(5, 0, true);
     console.log("¨test time2 short");
   },
+   // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
   startLongBreak: function () {
     this.resetVariables(15, 0, true);
     console.log("¨test time3 long");
   },
+   // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
   stopTimer: function () {
     this.resetVariables(0, 0, false);
     this.updateDom();
@@ -91,21 +94,29 @@ let pomodoro = {
     }
     return num;
   },
-
+//intervalCallback is a function that ends minutes to seconds and checks if there are minutes and seconds left
   intervalCallback: function () {
+    //if (!this.isStarted) checks whether it is running
     if (!this.isStarted) return false;
+    //if (this.sec == 0) checksif there are seconds left and after that see if there are minutes
+    // or if there are no more minutes left then run a function called this.timerComplete()
     if (this.sec == 0) {
       if (this.min == 0) {
+       // is a Function object which is called once the intervalCallback: function runs
         this.timerComplete();
         return;
       }
+      //if there are + minutes left then -1 minutes and set seconds to 59
       this.sec = 59;
       this.min--;
     } else {
+      //if there are + minutes left then -1 minutes and set seconds to 59
       this.sec--;
     }
+    // is a Function object which is called once the intervalCallback: function runs
     this.updateDom();
   },
+  //
   nextMode: function () {
     console.log("test bextMod4");
 
