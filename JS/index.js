@@ -6,7 +6,7 @@
 //where hold counts towards where mage work has run
 let cun = 0;
 let run = false;
-var timer;
+let timer;
 let playMode = document.querySelector("#button-restart");
 
 let pomodoro = {
@@ -56,7 +56,6 @@ let pomodoro = {
       console.log(self.sec);
       self.stopTimer.apply(self);
       console.log("¨test stop");
-      
     };
   },
 
@@ -87,7 +86,7 @@ let pomodoro = {
     this.updateDom();
     console.log("¨test time2");
   },
-//update what you can see in html min &sec
+  //update what you can see in html min &sec
   updateDom: function () {
     this.minDom.innerHTML = this.toDoubleDigit(this.min);
     this.secDom.innerHTML = this.toDoubleDigit(this.sec);
