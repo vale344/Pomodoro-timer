@@ -68,6 +68,7 @@ let pomodoro = {
   startime: function () {
     this.resetVariables(25, 0, true);
     console.log("¨test time1 star");
+    
   },
   // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
   startShortBreak: function () {
