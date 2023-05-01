@@ -1,28 +1,26 @@
 "use strict";
-// pomodoro: 25,
-// shortBreak: 5,
-// longBreak: 15,
-// longBreakinterval: 4,
-//where hold counts towards where mage work has run
+
+//cun is a Variables af int that keeps track of the number of times that starttime() has run
 let cun = 0;
+//run is Variables af bool keeps track of my playis running
 let run = false;
+<<<<<<< HEAD
 let timer;
+=======
+// timer is used together with aglobal function setInterval()
+var timer;
+>>>>>>> 390b79f102e6fe0d8082c6a8b36d0bd8c1da1737
 let playMode = document.querySelector("#button-restart");
-
+//pomodoro is Objects that holds all the Variables that need to be used between the {}
 let pomodoro = {
-  currentTimw: 0,
-  elapsedTme: 0,
-  paused: true,
-  startimer: 0,
-
-  status: false,
-  started: false,
+  //status on whether the timer is running
+  isStarted: false,
+  // keep track of whether you have braek or work
   work: false,
   min: 0,
   sec: 0,
-  fillerHeight: 0,
+  // used for calculating time in function resetVariables:
   fillerIncrement: 0,
-  interval: null,
   minDom: null,
   secDom: null,
   fillerDom: null,
@@ -58,13 +56,13 @@ let pomodoro = {
       console.log("¨test stop");
     };
   },
-
-  resetVariables: function (mins, secs, started) {
+//resetVariables: function (parameter, parameter, parameter)
+  resetVariables: function (mins, secs, isStarted) {
     this.min = mins;
     this.sec = secs;
-    this.started = started;
+    this.isStarted = isStarted;
     this.fillerIncrement = 200 / (this.mins * 60);
-    this.fillerHeight = 0;
+    
     console.log("¨test rester variable");
   },
 
@@ -73,14 +71,17 @@ let pomodoro = {
     this.resetVariables(25, 0, true);
     console.log("¨test time1 star");
   },
+   // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
   startShortBreak: function () {
     this.resetVariables(5, 0, true);
     console.log("¨test time2 short");
   },
+   // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
   startLongBreak: function () {
     this.resetVariables(15, 0, true);
     console.log("¨test time3 long");
   },
+   // when you click buttons for working mode, that new data will be inserted into  restVariables depending on which model you choose
   stopTimer: function () {
     this.resetVariables(0, 0, false);
     this.updateDom();
@@ -90,10 +91,6 @@ let pomodoro = {
   updateDom: function () {
     this.minDom.innerHTML = this.toDoubleDigit(this.min);
     this.secDom.innerHTML = this.toDoubleDigit(this.sec);
-
-    this.fillerHeight = this.fillerHeight + this.fillerIncrement;
-    this.fillerDom.style.height = this.fillerHeight + "px";
-    console.log("¨test update");
   },
   toDoubleDigit: function (num) {
     if (num < 10) {
@@ -101,21 +98,29 @@ let pomodoro = {
     }
     return num;
   },
-
+//intervalCallback is a function that ends minutes to seconds and checks if there are minutes and seconds left
   intervalCallback: function () {
-    if (!this.started) return false;
+    //if (!this.isStarted) checks whether it is running
+    if (!this.isStarted) return false;
+    //if (this.sec == 0) checksif there are seconds left and after that see if there are minutes
+    // or if there are no more minutes left then run a function called this.timerComplete()
     if (this.sec == 0) {
       if (this.min == 0) {
+       // is a Function object which is called once the intervalCallback: function runs
         this.timerComplete();
         return;
       }
+      //if there are + minutes left then -1 minutes and set seconds to 59
       this.sec = 59;
       this.min--;
     } else {
+      //if there are + minutes left then -1 minutes and set seconds to 59
       this.sec--;
     }
+    // is a Function object which is called once the intervalCallback: function runs
     this.updateDom();
   },
+  //
   nextMode: function () {
     console.log("test bextMod4");
 
@@ -139,9 +144,9 @@ let pomodoro = {
       }
     }
   },
-  //xsdfhkdvhbdcvbsdvhjbsdvjbsdvbsdjvbsdvjbsjdvbsudvbf
+ 
   timerComplete: function () {
-    this.started = false;
+    this.isStarted = false;
     this.fillerHeight = 0;
     this.nextMode();
   },
@@ -157,19 +162,14 @@ function startCount() {
   pomodoro.init();
 }
 document.querySelector("#button-restart").onclick = function () {
-  // this.started = this.started === false ? true : false;
   run = run === false ? true : false;
-  // console.log(run);
+
   if (run === true) {
-    //  clearInterval(timer);
     pause();
     playMode.innerHTML = ">";
     console.log(run);
   }
   if (run === false) {
-    // pomodoro.init();
-    // console.log(run);
-    // console.log(timer);
     startCount();
     playMode.innerHTML = "II";
   }
